@@ -1,0 +1,35 @@
+<div class="card" style="padding:1rem;">
+  <div class="form-group d-flex" style="margin-top: 1.5rem;">
+    <div style="width: 97%;">
+        <input type="text" #sqlQuery class="form-control" id="title" aria-describedby="emailHelp" placeholder="SQL Query" />
+    </div>
+    <button class="btn btn-primary" style="width: 3%;" (click)="searchBySqlQuery(sqlQuery.value)">
+        <i class="fa-solid fa-magnifying-glass"></i>
+    </button>
+  </div>
+  <div class="table-responsive" style="padding: 1rem;">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Table Name</th>
+            <th>Row Count</th>
+            <th>Column Count</th>
+            <th>Column Names</th>
+            <th>Process</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let table of tables; let i = index">
+            <td>{{ table.title }}</td>
+            <td>{{ table.rowCount }}</td>
+            <td>{{ table.columnCount }}</td>
+            <td>{{ table.columns }}</td>
+            <td>
+              <button (click)="routeToTableData(table.title)" class="btn btn-primary" type="submit">Details</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+    
+</div>

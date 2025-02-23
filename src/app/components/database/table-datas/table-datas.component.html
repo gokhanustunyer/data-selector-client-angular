@@ -1,0 +1,25 @@
+<div class="table-responsive card" style="padding: 1rem;">
+    <table class="table">
+      <thead>
+        <tr>
+          <th *ngFor="let column of columns; let i = index">{{column}}</th>
+          <th style="width: 110px;">
+            <select #exportType class="form-control" id="exampleFormControlSelect1">
+                <option>Excel</option>
+                <option>CSV</option>
+            </select>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of rows; let i = index">
+          <td *ngFor="let row_data of row.tableRowDatas; let i = index">{{ row_data.data }}</td>
+          <td>
+            <a (click)="downloadAsExcel(exportType.value)" class="feather" style="padding: 1rem;cursor:pointer;">
+                <i class="fa-solid fa-download"></i>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+</div>
